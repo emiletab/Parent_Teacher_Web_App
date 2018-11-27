@@ -1,5 +1,6 @@
-body {
-    margin: 0;
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .nav_bar {
@@ -42,7 +43,7 @@ a.title {
 .quickAccess{
     position: relative;
     float: right;
-  
+
 }
 
 .quickAccess_title:hover{
@@ -95,18 +96,6 @@ a.title {
 }
 
 
-
-.sidebar {
-    position: fixed;
-	margin-top: -15px;
-    height: 100%;
-    width: 270px;
-    background: #0D1730;
-
-
-
-}
-
 .sidebar_body {
 
     margin-top: 20px;
@@ -125,7 +114,7 @@ a.title {
 .sidebar_menu_item a:hover{
 
     background-color: #172443;
-
+    text-decoration: none;
 
 
 }
@@ -145,7 +134,7 @@ a.title {
 
 .sidebar_menu_item button{
 
-    background-color:#0D1730;
+    background: rgb(16, 26, 49);
     text-decoration: none;
     color: aliceblue;
     display: block;
@@ -202,90 +191,29 @@ a.title {
 
 }
 
-.page_content{
-
-	width: 1300px;
-	border-right-color: black;
-    margin-left: 285px;
-    margin-top: 75px;
-    height: 100%;
 
 
-
-}
-
-
-#button_newPost{
-    width: 100px;
-    height: 40px;
-	text-align: center;
-	cursor: pointer;
-	background-color: #3A4E81;
-	color: #FFF;
-	border-radius: 5px;
-	font-size: 15px;
-
-
-}
-
-#button_newPost:hover{
-
-	background-color: #172443;
-
-
-}
 
 
 .textArea{
 
 	padding: 10px;
+  width:80%;
+  height:80%;
 
 }
 
-#textPost{
-
-	padding: 5px 5px;
-	resize: none;
-	border-radius: 4px;
-	font-size: 20px;
-	color: #7C7C7C;
-	border-width: thin;
-	border-style: hidden;
-	border-color: #F3F3F3;
-	text-align: left;
-	background: #F3F3F3;
-
-
-
-}
-#textPost:focus {
-    background: #FFF;
-   border-color: #000000;
-	border-style: solid;
+.tagFriendsTable{
+  position:absolute;
+  top:20%;
+  right:4%;
 }
 
-#submitPost{
-
-	width: 120px;
-    height: 40px;
-	font-size: 20px;
-	color: #FFF;
-	margin-left: 1000px;
-	cursor: pointer;
-	background-color: gold;
-
-	border-radius: 5px;
-	border: none;
-
+.taggableFriends{
 
 }
 
-#submitPost:hover{
 
-	background-color: #DCB900;
-
-
-}
 
 #tableTitle{
 
@@ -317,21 +245,9 @@ a.title {
 
 }
 
-/* #tableWrap {
-  position:relative;
-  padding-top: 10px;
-  z-index: 0;
-}
-#tableScroll {
-  height:800px;
-  overflow:auto;
 
 
-} */
-
-
-
- td, tr{
+.posts{
 
 
 
@@ -397,6 +313,8 @@ textarea{
 
     resize: none;
 
+
+
 }
 
 #replyBox{
@@ -417,7 +335,7 @@ textarea{
 }
 
 #replayArea{
- 
+
     text-align: left;
 
 }#replayArea:focus{
@@ -425,3 +343,187 @@ textarea{
    border-color: #000000;
 	border-style: solid;
 }
+
+.likeBtn{
+
+    width: wrap;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(114, 226, 2);
+    padding: 5px;
+
+
+
+}
+
+.likeBtn:hover{
+    cursor: pointer;
+    background-color: rgb(127, 255, 0);
+
+}
+
+.dislikeBtn{
+
+
+    width: wrap;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(202, 0, 0);
+    padding: 5px;
+}
+
+
+.dislikeBtn:hover{
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+
+
+}
+
+.toCommentPageBtn{
+
+    font-weight: bold;
+    cursor: pointer;
+    padding: 7px;
+    width: wrap;
+    margin-left: 5px;
+}
+
+.toCommentPageBtn:hover{
+
+    width: wrap;
+    cursor: pointer;
+
+    background-color: rgb(218, 218, 218);
+}
+
+
+
+
+.notDropDown{
+
+
+
+    float: right;
+    position: relative;
+
+
+}
+
+.notifcation_list{
+
+    width:350px;
+    height: wrap;
+    min-height: 100px;
+    float: right;
+    color: black;
+    z-index: 1;
+    position: fixed;
+
+
+
+}
+
+.notification{
+
+    border:none;
+    width: inherit;
+    height: 40px;
+}
+
+.notification{
+
+    float: left;
+    cursor: pointer;
+    background-color: rgb(252, 252, 252);
+    text-align: left;
+    padding:5px;
+
+}
+
+.notification:hover{
+
+    border:none;
+    background-color: rgb(218, 218, 218);
+}
+
+
+.forgotPassword{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px;
+    background-color: white;
+    padding:30px;
+    display: block;
+    background-color: rgb(252, 252, 252);
+}
+
+#forgotTitle{
+  text-align: center;
+  font-size: 30px;
+
+}
+
+.email_reset{
+
+    padding-left: 3px;
+    font-size: 20px;
+    margin-left:50px;
+    margin-top: 20px;
+
+}
+
+#titleForgot{
+    margin-top:-75px;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(79, 137, 192);
+
+}
+
+
+
+
+/* BOOTSTRAP*/
+
+
+.navbar {
+    background-image: url(res/header-blueBurst.jpg);
+
+}
+
+.navbar-brand{
+
+    color: rgb(255, 255, 255) !important;
+    font-size: 25px !important;
+}
+
+.main_sidebar {
+    min-height:100vh;
+    position:fixed;
+    top:63px;
+    left:0;
+    width:350px;
+    float: left;
+    background-color: rgb(16, 26, 49);
+}
+
+.wrapper{
+    width:400px;
+    overflow:hidden;
+    padding:10px;
+ 
+
+}
+
+.page_content{
+
+    margin-top: 70px;
+    margin-left: 400px;
+    float: left;
+
+   
+}
+

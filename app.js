@@ -6,18 +6,19 @@ var logger = require('morgan');
 var mysql = require('mysql');
 
 
+/* this done to route the js file*/
+var forgotPasswordRouter= require('./routes/forgotPassword');
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var parentRouter = require('./routes/parenthomepage');
+
 var toCommentPageRouter = require('./routes/toCommentPage');
 var replyRouter = require('./routes/reply')
 var loginRouter=require('./routes/login');
 var postRouter=require('./routes/posting');
-var parentProfileRouter=require('./routes/parentProfile');
-var teacherProfileRouter=require('./routes/teacherProfile');
+
+var friendProfileRouter = require('./routes/viewFriendProfile');
 var editParentProfileInfoRouter = require('./routes/editParentProfileInfo');
 var messenger = require('./routes/Messengerindex');
-var viewParent = require('./routes/viewParents');
 
 var friendsRouter = require('./routes/friends');
 var searchFriendsRouter = require('./routes/searchFriends');
@@ -28,6 +29,8 @@ var groupsRouter = require('./routes/groups');
 var createGroupRouter = require('./routes/createGroups');
 var editGroupRouter = require('./routes/editGroup');
 var addtoGroupRouter = require('./routes/addToGroup');
+var groupRequestRouter = require('./routes/groupRequest');
+var declineGroupRequestRouter = require('./routes/declineGroupRequest');
 
 var wallRouter = require('./routes/goToWall');
 
@@ -62,23 +65,21 @@ app.use( express.static( "public/uploads" ) );
 
 app.use('/', indexRouter);
 //app.use('/login',indexRouter);
-app.use('/users', usersRouter);
-app.use('/parenthomepage',parentRouter);
+
+
 app.use('/commentPage', toCommentPageRouter);
 app.use('/reply', replyRouter);
 app.use('/login', loginRouter);
 app.use('/posting',postRouter);
-app.use('/parentProfile',parentProfileRouter);
-app.use('/teacherProfile',teacherProfileRouter);
+
 app.use('/editParentProfileInfo', editParentProfileInfoRouter);
 app.use('/parentMessenger',messenger);
 app.use('/logout',indexRouter);
 app.use('/homepage',indexRouter);
-app.use('/viewParent',viewParent);
+
+app.use('/viewFriendProfile', friendProfileRouter);
 
 //friends
-
-
 app.use('/friends', friendsRouter);
 app.use('/searchFriends',searchFriendsRouter);
 app.use('/searchUsers',searchUsersRouter);
@@ -94,11 +95,20 @@ app.use('/dislike', dislikeRouter);
 app.use('/viewProfile', viewProfile);
 
 //groups
-
 app.use('/groups',groupsRouter);
 app.use('/createGroups',createGroupRouter);
 app.use('/editGroup',editGroupRouter);
 app.use('/addToGroup',addtoGroupRouter);
+app.use('/groupRequest', groupRequestRouter);
+app.use('/declineGroupRequest', declineGroupRequestRouter);
+
+
+
+/* to link the js*/
+app.use('/forgotPassword',forgotPasswordRouter);
+
+
+
 
 
 // catch 404 and forward to error handler
@@ -107,7 +117,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
